@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - PawsHome Pet Adoption Center</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <meta
+      name="description"
+      content="Learn about PawsHome Pet Adoption Center's mission, team, and commitment to finding loving homes for pets in need."
+    />
+    <style>
+      /* About page specific styles */
+      .about-hero {
+        background-color: #f0f5ff;
+        padding: var(--spacing-xl) 0;
+      }
+
+      .about-hero .container {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xl);
+      }
+
+      .about-hero-content {
+        flex: 1;
+      }
+
+      .about-hero-image {
+        flex: 1;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--box-shadow-lg);
+      }
+
+      .mission-section {
+        padding: var(--spacing-xl) 0;
+      }
+
+      .mission-container {
+        display: flex;
+        gap: var(--spacing-xl);
+        align-items: center;
+      }
+
+      .mission-content {
+        flex: 1;
+      }
+
+      .mission-image {
+        flex: 1;
+        border-radius: var(--border-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+      }
+
+      .values-section {
+        background-color: #f8f9fa;
+        padding: var(--spacing-xl) 0;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+      }
+
+      .value-card {
+        background-color: white;
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--box-shadow);
+        text-align: center;
+      }
+
+      .value-icon {
+        width: 70px;
+        height: 70px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--spacing-md);
+      }
+
+      .value-icon i {
+        font-size: 1.5rem;
+      }
+
+      .team-section {
+        padding: var(--spacing-xl) 0;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+      }
+
+      .team-member {
+        text-align: center;
+      }
+
+      .team-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto var(--spacing-md);
+        box-shadow: var(--box-shadow);
+      }
+
+      .team-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .team-info h3 {
+        margin-bottom: var(--spacing-xs);
+        font-family: var(--heading-font);
+      }
+
+      .team-info p {
+        color: var(--gray-color);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .team-social {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-xs);
+      }
+
+      .team-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background-color: #f0f5ff;
+        border-radius: 50%;
+        color: var(--primary-color);
+        transition: all var(--transition-speed) ease;
+      }
+
+      .team-social a:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .testimonials-section {
+        background-color: var(--primary-color);
+        color: white;
+        padding: var(--spacing-xl) 0;
+      }
+
+      .testimonials-section .section-title {
+        color: white;
+      }
+
+      .testimonials-section .section-title::after {
+        background-color: white;
+      }
+
+      .testimonials-container {
+        display: flex;
+        gap: var(--spacing-lg);
+        overflow-x: auto;
+        padding: var(--spacing-md) 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+      }
+
+      .testimonials-container::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .testimonials-container::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .testimonials-container::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+      }
+
+      .testimonial {
+        flex: 0 0 350px;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: var(--spacing-lg);
+        border-radius: var(--border-radius-md);
+        scroll-snap-align: start;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .testimonial:hover {
+        transform: translateY(-5px);
+      }
+
+      .testimonial-content {
+        margin-bottom: var(--spacing-md);
+        font-style: italic;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: var(--spacing-md);
+      }
+
+      .author-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .author-info h4 {
+        margin-bottom: 0;
+        font-family: var(--heading-font);
+      }
+
+      .author-info p {
+        font-size: 0.875rem;
+        opacity: 0.8;
+      }
+
+      .partners-section {
+        padding: var(--spacing-xl) 0;
+      }
+
+      .partners-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-lg);
+        align-items: center;
+      }
+
+      .partner-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        padding: var(--spacing-md);
+        background-color: white;
+        border-radius: var(--border-radius-md);
+        box-shadow: var(--box-shadow);
+      }
+
+      .partner-logo img {
+        max-width: 100%;
+        max-height: 60px;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: all var(--transition-speed) ease;
+      }
+
+      .partner-logo:hover img {
+        filter: grayscale(0);
+        opacity: 1;
+      }
+
+      @media (max-width: 992px) {
+        .about-hero .container,
+        .mission-container {
+          flex-direction: column;
+        }
+
+        .about-hero-content,
+        .about-hero-image,
+        .mission-content,
+        .mission-image {
+          width: 100%;
+        }
+
+        .testimonials-container {
+          padding-bottom: var(--spacing-md);
+        }
+
+        .testimonial {
+          flex: 0 0 300px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .testimonial {
+          flex: 0 0 85%;
+        }
+
+        .partners-grid {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <a href="index.html">
+            <h1>Home<span>Nest</span></h1>
+          </a>
+        </div>
+        <nav>
+          <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul class="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Properties</a></li>
+            <li><a href="calculator.html">Mortgage Calculator</a></li>
+            <li><a href="contact.html" class="btn-primary">Contact Agent</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- About Hero Section -->
+      <section class="about-hero">
+        <div class="container">
+          <div class="about-hero-content animate-on-scroll fade-in">
+            <h1>About HomeNest</h1>
+            <p>
+              HomeNest is a leading real estate agency dedicated to helping individuals and families find more than just a house—we help you discover your home. Since our establishment in 2010, we’ve served clients across diverse backgrounds, guiding them through property buying, selling, and investment with professionalism and care.
+            </p>
+            <p>
+              Our commitment to personalized service, market expertise, and ethical practices sets us apart in the real estate industry. From first-time homebuyers to seasoned investors, we’re your trusted partner every step of the way.
+            </p>
+          </div>
+          <div class="about-hero-image animate-on-scroll slide-in-right">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+              alt="Modern residential property"
+            />
+          </div>
+        </div>
+      </section>
+      
+      <section class="mission-section">
+        <div class="container">
+          <div class="mission-container">
+            <div class="mission-image animate-on-scroll slide-in-left">
+              <img
+                src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Real estate consultation meeting"
+              />
+            </div>
+            <div class="mission-content animate-on-scroll fade-in">
+              <h2 class="section-title">Our Mission</h2>
+              <p>
+                At HomeNest, our mission is to simplify real estate transactions by delivering tailored solutions, local market insights, and exceptional client experiences. We aim to empower buyers and sellers through education, technology, and transparent communication.
+              </p>
+              <p>We dedicate ourselves to:</p>
+              <ul>
+                <li>Helping clients buy, sell, and rent with confidence and ease</li>
+                <li>Providing strategic property investment guidance</li>
+                <li>Ensuring fair and transparent transactions</li>
+                <li>Leveraging data and technology for smarter decisions</li>
+                <li>Creating lifelong client relationships based on trust</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="values-section">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll fade-in">
+            Our Core Values
+          </h2>
+          <div class="values-grid">
+            <div class="value-card animate-on-scroll fade-in">
+              <div class="value-icon">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h3>Integrity</h3>
+              <p>
+                We believe in honesty, accountability, and fairness in every interaction.
+              </p>
+            </div>
+      
+            <div class="value-card animate-on-scroll fade-in" data-delay="200">
+              <div class="value-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3>Innovation</h3>
+              <p>
+                We embrace modern tools and creative solutions to serve our clients better.
+              </p>
+            </div>
+      
+            <div class="value-card animate-on-scroll fade-in" data-delay="600">
+              <div class="value-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3>Client Focus</h3>
+              <p>
+                Every decision we make prioritizes your needs, goals, and peace of mind.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="team-section">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll fade-in">Meet Our Team</h2>
+          <div class="team-grid">
+            <div class="team-member animate-on-scroll fade-in">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1603415526960-f8f06ff2c8e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                  alt="Alicia Brown"
+                />
+              </div>
+              <div class="team-info">
+                <h3>Alicia Brown</h3>
+                <p>Managing Broker</p>
+                <div class="team-social">
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+      
+            <div class="team-member animate-on-scroll fade-in" data-delay="200">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                  alt="Daniel Kim"
+                />
+              </div>
+              <div class="team-info">
+                <h3>Daniel Kim</h3>
+                <p>Senior Property Consultant</p>
+                <div class="team-social">
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+      
+            <div class="team-member animate-on-scroll fade-in" data-delay="400">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1624561172888-ac93c696e10b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                  alt="Lena Walker"
+                />
+              </div>
+              <div class="team-info">
+                <h3>Lena Walker</h3>
+                <p>Client Relationship Manager</p>
+                <div class="team-social">
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+      
+            <div class="team-member animate-on-scroll fade-in" data-delay="600">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1595152452543-e5fc28ebc6b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                  alt="Mark Rivera"
+                />
+              </div>
+              <div class="team-info">
+                <h3>Mark Rivera</h3>
+                <p>Market Analyst</p>
+                <div class="team-social">
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>Home<span>Nest</span></h2>
+            <p>Your partner in real estate success.</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Properties</a></li>
+              <li><a href="calculator.html">Mortgage Calculator</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 789 Realty Blvd, Urbanville</p>
+            <p><i class="fas fa-phone"></i> (800) 555-6789</p>
+            <p><i class="fas fa-envelope"></i> contact@homenest.com</p>
+          </div>
+          <div class="footer-social">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 HomeNest Real Estate Agency. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+  </body>
+</html>

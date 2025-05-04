@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Contact Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Submit an adoption inquiry to find your perfect pet companion at PawsHome Pet Adoption Center.">
+    <style>
+        /* Contact page specific styles */
+        .contact-section {
+            background-color: #f8f9fa;
+            padding: var(--spacing-xl) 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+        
+        .contact-info {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            height: fit-content;
+        }
+        
+        .contact-info h2 {
+            margin-bottom: var(--spacing-md);
+            font-family: var(--heading-font);
+        }
+        
+        .contact-info p {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-md);
+        }
+        
+        .contact-hours {
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-hours h3 {
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--heading-font);
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .contact-form-container {
+            background-color: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .contact-form-container h2 {
+            margin-bottom: var(--spacing-md);
+            font-family: var(--heading-font);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: var(--border-radius-md);
+            font-family: var(--body-font);
+            font-size: 1rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.2);
+        }
+        
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .form-check-input {
+            margin-right: var(--spacing-sm);
+            margin-top: 0.25rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+        
+        .form-section {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-section h3 {
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-xs);
+            border-bottom: 1px solid #e9ecef;
+            font-family: var(--heading-font);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .error-message {
+            color: var(--danger-color);
+            font-size: 0.875rem;
+            margin-top: var(--spacing-xs);
+        }
+        
+        .form-control.error {
+            border-color: var(--danger-color);
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-lg);
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .required-field::after {
+            content: '*';
+            color: var(--danger-color);
+            margin-left: 4px;
+        }
+        
+        .form-note {
+            font-size: 0.875rem;
+            color: var(--gray-color);
+            margin-top: var(--spacing-xs);
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <div class="logo">
+            <a href="index.html">
+              <h1>Home<span>Nest</span></h1>
+            </a>
+          </div>
+          <nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul class="nav-menu">
+              <li><a href="index.html" class="active">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Properties</a></li>
+              <li><a href="calculator.html">Mortgage Calculator</a></li>
+              <li><a href="contact.html" class="btn-primary">Contact Agent</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+  
+    <main>
+        
+        <!-- Contact Section -->
+        <section class="page-header">
+            <div class="container">
+              <h1 class="animate-on-scroll fade-in">Property Inquiry</h1>
+              <p class="animate-on-scroll fade-in">
+                Let us help you find the perfect home or investment. Submit your property preferences and connect with a licensed advisor today.
+              </p>
+            </div>
+          </section>
+          
+          <section class="contact-section">
+            <div class="container">
+              <div class="contact-container">
+                <div class="contact-info animate-on-scroll slide-in-left">
+                  <h2>Connect With Us</h2>
+                  <p>
+                    Whether you're looking to buy, invest, or schedule a tour, our real estate advisors are ready to assist you.
+                  </p>
+          
+                  <div class="contact-method">
+                    <div class="contact-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                      <h3>Office Address</h3>
+                      <p>789 Realty Blvd<br />Metroville, MV 45678</p>
+                    </div>
+                  </div>
+          
+                  <div class="contact-method">
+                    <div class="contact-icon">
+                      <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                      <h3>Call Us</h3>
+                      <p>(555) 234-5678</p>
+                    </div>
+                  </div>
+          
+                  <div class="contact-method">
+                    <div class="contact-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                      <h3>Email Us</h3>
+                      <p>hello@homenestrealty.com</p>
+                    </div>
+                  </div>
+          
+                  <div class="contact-hours">
+                    <h3>Business Hours</h3>
+                    <ul class="hours-list">
+                      <li><span>Monday - Friday</span> <span>9:00 AM - 6:00 PM</span></li>
+                      <li><span>Saturday</span> <span>10:00 AM - 4:00 PM</span></li>
+                      <li><span>Sunday</span> <span>Closed</span></li>
+                    </ul>
+                  </div>
+                </div>
+          
+                <div class="contact-form-container animate-on-scroll slide-in-right">
+                  <div id="success-message" class="success-message">
+                    Thank you for reaching out! A HomeNest advisor will contact you shortly.
+                  </div>
+          
+                  <h2>Property Inquiry Form</h2>
+                  <p>Fill out the form below and we'll connect you with properties that fit your needs.</p>
+          
+                  <!-- Placeholder for inquiry form -->
+                  <form id="property-inquiry-form" class="adoption-form">
+                    <div class="form-group">
+                      <label for="full-name">Full Name</label>
+                      <input type="text" id="full-name" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email Address</label>
+                      <input type="email" id="email" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="phone">Phone Number</label>
+                      <input type="tel" id="phone" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                      <label for="location">Preferred Location</label>
+                      <input type="text" id="location" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                      <label for="property-type">Property Type</label>
+                      <select id="property-type" class="form-control">
+                        <option value="">Select type</option>
+                        <option value="house">House</option>
+                        <option value="condo">Condo</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="land">Land</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="budget">Estimated Budget</label>
+                      <input type="text" id="budget" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Additional Notes</label>
+                      <textarea id="message" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn-primary">Submit Inquiry</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section class="adoption-process">
+            <div class="container">
+              <h2 class="section-title animate-on-scroll fade-in">How It Works</h2>
+              <div class="process-steps">
+                <div class="step animate-on-scroll slide-in-left">
+                  <div class="step-icon">
+                    <i class="fas fa-file-alt"></i>
+                  </div>
+                  <h3>Submit Inquiry</h3>
+                  <p>Tell us what you're looking for by filling out the form.</p>
+                </div>
+          
+                <div class="step animate-on-scroll slide-in-left" data-delay="200">
+                  <div class="step-icon">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <h3>Consultation Call</h3>
+                  <p>We'll connect with you to learn more and refine your preferences.</p>
+                </div>
+          
+                <div class="step animate-on-scroll slide-in-left" data-delay="400">
+                  <div class="step-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                  </div>
+                  <h3>Schedule Viewings</h3>
+                  <p>Tour the best-matched properties either virtually or in person.</p>
+                </div>
+          
+                <div class="step animate-on-scroll slide-in-left" data-delay="600">
+                  <div class="step-icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <h3>Make an Offer</h3>
+                  <p>Receive expert advice during negotiation and close the deal smoothly.</p>
+                </div>
+          
+                <div class="step animate-on-scroll slide-in-left" data-delay="800">
+                  <div class="step-icon">
+                    <i class="fas fa-home"></i>
+                  </div>
+                  <h3>Welcome Home</h3>
+                  <p>Move in and enjoy your new home or investment property.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+</main>
+
+
+<footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Home<span>Nest</span></h2>
+          <p>Your partner in real estate success.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Properties</a></li>
+            <li><a href="calculator.html">Mortgage Calculator</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 789 Realty Blvd, Urbanville</p>
+          <p><i class="fas fa-phone"></i> (800) 555-6789</p>
+          <p><i class="fas fa-envelope"></i> contact@homenest.com</p>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 HomeNest Real Estate Agency. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show/hide landlord permission section based on housing status
+            const rentRadio = document.getElementById('rent');
+            const ownRadio = document.getElementById('own');
+            const landlordSection = document.getElementById('landlord-section');
+            
+            if (rentRadio && ownRadio && landlordSection) {
+                rentRadio.addEventListener('change', function() {
+                    if (this.checked) {
+                        landlordSection.style.display = 'block';
+                        document.getElementById('landlord-permission').setAttribute('required', 'required');
+                    }
+                });
+                
+                ownRadio.addEventListener('change', function() {
+                    if (this.checked) {
+                        landlordSection.style.display = 'none';
+                        document.getElementById('landlord-permission').removeAttribute('required');
+                    }
+                });
+            }
+            
+            // Form submission handling
+            const adoptionForm = document.getElementById('adoption-form');
+            const successMessage = document.getElementById('success-message');
+            
+            if (adoptionForm && successMessage) {
+                adoptionForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // In a real application, you would send the form data to a server here
+                    // For this demo, we'll just show the success message
+                    
+                    // Show success message
+                    successMessage.classList.add('show');
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset form
+                    adoptionForm.reset();
+                    
+                    // Hide landlord section if it was shown
+                    if (landlordSection) {
+                        landlordSection.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

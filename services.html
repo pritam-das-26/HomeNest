@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Available Properties - HomeNest</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta name="description" content="Browse available real estate listings from HomeNest Real Estate Agency."/>
+
+  <style>
+    .property-filter {
+      background: white;
+      padding: var(--spacing-md);
+      border-radius: var(--border-radius-md);
+      box-shadow: var(--box-shadow);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .filter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+    }
+
+    .filter-group {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .filter-control {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ced4da;
+      border-radius: var(--border-radius-md);
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .property-card {
+      background: white;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-speed);
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .property-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform var(--transition-speed);
+    }
+
+    .property-card:hover .property-image img {
+      transform: scale(1.05);
+    }
+
+    .property-info {
+      padding: var(--spacing-md);
+    }
+
+    .property-info h3 {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .property-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+      margin: var(--spacing-sm) 0;
+    }
+
+    .property-tag {
+      background: #f0f5ff;
+      color: var(--primary-color);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--border-radius-sm);
+      font-size: 0.8rem;
+    }
+
+    .property-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: var(--spacing-sm);
+    }
+
+    @media (max-width: 768px) {
+      .filter-form {
+        flex-direction: column;
+      }
+
+      .filter-group {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header from HomeNest -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <h1>Home<span>Nest</span></h1>
+        </a>
+      </div>
+      <nav>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html" class="active">Properties</a></li>
+          <li><a href="calculator.html">Mortgage Calculator</a></li>
+          <li><a href="contact.html" class="btn-primary">Contact Agent</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="animate-on-scroll fade-in">Available Properties</h1>
+        <p class="animate-on-scroll fade-in">Browse homes for sale and rent in your area.</p>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="properties-section">
+      <div class="container">
+        <div class="property-filter animate-on-scroll fade-in">
+          <form id="filter-form" class="filter-form">
+            <div class="filter-group">
+              <label for="type">Property Type</label>
+              <select id="type" class="filter-control">
+                <option value="all">All Types</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="villa">Villa</option>
+                <option value="condo">Condo</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="bedrooms">Bedrooms</label>
+              <select id="bedrooms" class="filter-control">
+                <option value="all">Any</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="price">Price Range</label>
+              <select id="price" class="filter-control">
+                <option value="all">Any</option>
+                <option value="0-250000">Under $250K</option>
+                <option value="250000-500000">$250K - $500K</option>
+                <option value="500000-1000000">$500K - $1M</option>
+                <option value="1000000+">Over $1M</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="location">Location</label>
+              <select id="location" class="filter-control">
+                <option value="all">All</option>
+                <option value="beverly">Beverly Hills</option>
+                <option value="greenview">Greenview</option>
+                <option value="downtown">Downtown</option>
+              </select>
+            </div>
+          </form>
+        </div>
+
+        <!-- Properties Grid -->
+        <div class="properties-grid">
+          <div class="property-card animate-on-scroll fade-in">
+            <div class="property-image">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Luxury Villa">
+            </div>
+            <div class="property-info">
+              <h3>Luxury Villa</h3>
+              <p>4 Bed, 3 Bath – Beverly Hills</p>
+              <div class="property-tags">
+                <span class="property-tag">Villa</span>
+                <span class="property-tag">Pool</span>
+                <span class="property-tag">Gated</span>
+              </div>
+              <div class="property-actions">
+                <a href="contact.html" class="btn-primary">Schedule Viewing</a>
+                <a href="calculator.html" class="btn-tertiary">Estimate Mortgage</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="property-card animate-on-scroll fade-in">
+            <div class="property-image">
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="City Apartment">
+            </div>
+            <div class="property-info">
+              <h3>City Apartment</h3>
+              <p>2 Bed, 2 Bath – Downtown</p>
+              <div class="property-tags">
+                <span class="property-tag">Apartment</span>
+                <span class="property-tag">Balcony</span>
+                <span class="property-tag">Modern</span>
+              </div>
+              <div class="property-actions">
+                <a href="contact.html" class="btn-primary">Schedule Viewing</a>
+                <a href="calculator.html" class="btn-tertiary">Estimate Mortgage</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="property-card animate-on-scroll fade-in">
+            <div class="property-image">
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Suburban Home">
+            </div>
+            <div class="property-info">
+              <h3>Suburban Home</h3>
+              <p>3 Bed, 2 Bath – Greenview</p>
+              <div class="property-tags">
+                <span class="property-tag">House</span>
+                <span class="property-tag">Garage</span>
+                <span class="property-tag">Backyard</span>
+              </div>
+              <div class="property-actions">
+                <a href="contact.html" class="btn-primary">Schedule Viewing</a>
+                <a href="calculator.html" class="btn-tertiary">Estimate Mortgage</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer from HomeNest -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h2>Home<span>Nest</span></h2>
+          <p>Your partner in real estate success.</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Properties</a></li>
+            <li><a href="calculator.html">Mortgage Calculator</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 789 Realty Blvd, Urbanville</p>
+          <p><i class="fas fa-phone"></i> (800) 555-6789</p>
+          <p><i class="fas fa-envelope"></i> contact@homenest.com</p>
+        </div>
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 HomeNest Real Estate Agency. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>
